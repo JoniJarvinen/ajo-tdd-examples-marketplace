@@ -1,0 +1,35 @@
+<phpunit xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:noNamespaceSchemaLocation="http://schema.phpunit.de/9.3/phpunit.xsd"
+         backupGlobals="false"
+         colors="true"
+         verbose="true"
+         testdox="true"
+         bootstrap="vendor/autoload.php"
+         failOnRisky="true"
+         failOnWarning="true"
+         cacheResultFile="var/phpunit/cache/phpunit.result.cache"
+>
+    <testsuites>
+        <testsuite name="All Tests">
+            <directory>Tests</directory>
+        </testsuite>
+    </testsuites>
+    <coverage cacheDirectory="var/phpunit/cache"
+          includeUncoveredFiles="true"
+          processUncoveredFiles="true"
+          pathCoverage="false"
+          ignoreDeprecatedCodeUnits="true"
+          disableCodeCoverageIgnore="true">
+        <include>
+            <directory suffix=".php">src</directory>
+        </include>
+        <report>
+            <text outputFile="var/phpunit/coverage/result.txt" />
+            <html outputDirectory="var/phpunit/coverage-html" />
+        </report>
+    </coverage>
+    <php>
+        <!-- E_ALL & ~E_DEPRECATED -->
+        <ini name="error_reporting" value="24575"/>
+    </php>
+</phpunit>
