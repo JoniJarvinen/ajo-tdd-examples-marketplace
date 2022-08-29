@@ -4,7 +4,7 @@
          colors="true"
          verbose="true"
          testdox="true"
-         bootstrap="vendor/autoload.php"
+         bootstrap="Tests/symfony_bootstrap.php"
          failOnRisky="true"
          failOnWarning="true"
          cacheResultFile="var/phpunit/cache/phpunit.result.cache"

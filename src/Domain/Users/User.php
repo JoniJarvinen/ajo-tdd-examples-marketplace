@@ -5,10 +5,11 @@ declare(strict_types=1);
 namespace Ajo\Tdd\Examples\Marketplace\Domain\Users;
 
 use Ajo\Tdd\Examples\Common\Domain\Email;
+use Ajo\Tdd\Examples\Common\Equatable;
 use Ajo\Tdd\Examples\Marketplace\Domain\Accounts\Account;
 use Ajo\Tdd\Examples\Marketplace\Domain\Accounts\AccountCollection;
 
-final class User
+final class User implements Equatable
 {
     private array $domainEvents = [];
     public function __construct(
@@ -41,5 +42,16 @@ final class User
             }
         }
         return false;
+    }
+
+    public function equals(mixed $value): bool
+    {
+        if (
+            $value === null ||
+            !$value instanceof User
+        ) {
+            return false;
+        }
+        return $this->id->equals($value->id);
     }
 }

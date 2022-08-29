@@ -79,4 +79,31 @@ class InMemoryAdRepositoryTest extends TestCase
 
         $this->assertEquals(3, $ads->count(), 'Too many or missing ads returned from repository');
     }
+
+    /**
+     * @test
+     */
+    public function should_find_all_ads(): void
+    {
+        $repository = new InMemoryAdRepository();
+        $repository->save(
+            Marketplace::ad(
+                id: new AdId('1')
+            )
+        );
+        $repository->save(
+            Marketplace::ad(
+                id: new AdId('2')
+            )
+        );
+        $repository->save(
+            Marketplace::ad(
+                id: new AdId('3')
+            )
+        );
+
+        $ads = $repository->findAll();
+
+        $this->assertCount(3, $ads, 'Expected to find all 3 saved ads');
+    }
 }

@@ -20,7 +20,7 @@ final class Account implements Equatable
     ) {
     }
 
-    public function equals($value): bool
+    public function equals(mixed $value): bool
     {
         if (
             $value === null ||
@@ -34,4 +34,5 @@ final class Account implements Equatable
     public function addAd(Ad $ad)
     {
     }
+
 }

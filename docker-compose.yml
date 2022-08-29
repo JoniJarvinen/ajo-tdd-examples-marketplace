@@ -7,14 +7,26 @@ services:
         - "80:8080"
     mem_limit: 250m
     depends_on:
-      - mariadb
+      - database
     entrypoint: /usr/bin/startup.sh
     restart: on-failure
-  mariadb:
-    build:
-      dockerfile: docker/Dockerfile.mariadb
-      context: .
-    mem_limit: 250m
+  # mariadb:
+  #   build:
+  #     dockerfile: docker/Dockerfile.mariadb
+  #     context: .
+  #   mem_limit: 250m
+  #   volumes:
+  #     - ./var/database/:/var/projects/marketplace/database
+  #   restart: on-failure
+
+  database:
+    image: postgres:${POSTGRES_VERSION:-14}-alpine
+    environment:
+      POSTGRES_DB: ${POSTGRES_DB:-marketplace}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-marketplace}
+      POSTGRES_USER: ${POSTGRES_USER:-marketplace}
     volumes:
-      - ./var/database/:/var/projects/marketplace/database
-    restart: on-failure
+      - ./docker/db/data:/var/lib/postgresql/data:rw
+    ports:
+      - "5432"
+
