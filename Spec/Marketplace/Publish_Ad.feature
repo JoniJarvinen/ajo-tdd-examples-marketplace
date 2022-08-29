@@ -1,5 +1,5 @@
 Feature: Publish ad
-    In order to control ads
+    In order to control ad schedule
     As a user
     I want to specify when an ad is published
 
@@ -10,5 +10,5 @@ Feature: Publish ad
     
     Scenario: Publish ad immediately
         Given An existing ad
-        When User submits ad as submit now
+        When User submits ad as publish now
         Then Ad is published

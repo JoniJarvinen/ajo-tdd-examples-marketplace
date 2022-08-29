@@ -10,8 +10,12 @@ use PHPUnit\Framework\TestCase;
 
 class AdsTest extends TestCase
 {
+    /**
+     * @test
+     */
     public function new_ad_should_be_in_initial_place()
     {
         $ads = new Ads(new InMemoryAdRepository());
+        $this->markTestIncomplete('Not implemented yet.');
     }
 }

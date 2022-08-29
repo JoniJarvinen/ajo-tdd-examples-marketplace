@@ -4,13 +4,45 @@ declare(strict_types=1);
 
 namespace Ajo\Tdd\Examples\Marketplace\Infrastructure\Repositories;
 
+use Ajo\Tdd\Examples\Marketplace\Domain\Accounts\AccountId;
 use Ajo\Tdd\Examples\Marketplace\Domain\Ads\Ad;
+use Ajo\Tdd\Examples\Marketplace\Domain\Ads\AdCollection;
 use Ajo\Tdd\Examples\Marketplace\Domain\Ads\AdId;
 use Ajo\Tdd\Examples\Marketplace\Domain\Ads\AdRepositoryInterface;
 
 class InMemoryAdRepository implements AdRepositoryInterface
 {
     private array $records = [];
+
+    public function findAll(int $limit = 50, int $page = 1): AdCollection
+    {
+        $offset = $page * $limit - $limit;
+        $output = new AdCollection();
+        $output->exchangeArray(
+            array_slice(
+                $this->records,
+                $offset,
+                $limit
+            )
+        );
+        return $output;
+    }
+
+    public function findByAccountId(AccountId $accountId): AdCollection
+    {
+        $foundAds = new AdCollection();
+        foreach($this->records as $record)
+        {
+            /**
+             * @var Ad $record
+             */
+            if($record->getAccountId()->equals($accountId))
+            {
+                $foundAds->append($record);
+            }
+        }
+        return $foundAds;
+    }
 
     public function save(Ad $ad): Ad
     {

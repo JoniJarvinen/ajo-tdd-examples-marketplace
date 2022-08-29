@@ -4,14 +4,8 @@ declare(strict_types=1);
 
 namespace Ajo\Tdd\Examples\Marketplace\Domain\Accounts;
 
-use InvalidArgumentException;
+use Ajo\Tdd\Examples\Common\Domain\AbstractId;
 
-final class AccountId
+final class AccountId extends AbstractId
 {
-    public function __construct(private string $id)
-    {
-        if (mb_strlen($id) < 1) {
-            throw new InvalidArgumentException('ID cannot be an empty string');
-        }
-    }
 }

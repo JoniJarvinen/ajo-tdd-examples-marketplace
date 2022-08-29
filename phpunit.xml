@@ -31,5 +31,10 @@
     <php>
         <!-- E_ALL & ~E_DEPRECATED -->
         <ini name="error_reporting" value="24575"/>
+
+        <!-- ###+ symfony/framework-bundle ### -->
+        <env name="APP_ENV" value="dev"/>
+        <env name="APP_SECRET" value="ec607284065cfeb171cd1daed889b15a"/>
+        <!-- ###- symfony/framework-bundle ### -->
     </php>
 </phpunit>

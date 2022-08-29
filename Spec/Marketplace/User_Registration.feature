@@ -6,6 +6,6 @@ Feature: User Registration
     Scenario: Register user
         Given Filled out registration form
         When All required information is filled and valid
-        Then Marketplace account is created
+        Then Marketplace user and account is created
     
     
