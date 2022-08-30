@@ -26,6 +26,9 @@ services:
             $userRepository: '@Ajo\Tdd\Examples\Marketplace\Infrastructure\Repositories\InMemoryUserRepository'
             $accountRepository: '@Ajo\Tdd\Examples\Marketplace\Infrastructure\Repositories\InMemoryAccountRepository'
 
+    Ajo\Tdd\Examples\Common\Domain\IdGeneratorInterface:
+        class: Ajo\Tdd\Examples\Common\Infrastructure\UuidGenerator
+
     JsonMapper\JsonMapperFactory: ~
     JsonMapper\JsonMapper:
         factory: ['@JsonMapper\JsonMapperFactory', 'bestFit']

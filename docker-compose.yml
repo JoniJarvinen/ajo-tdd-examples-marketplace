@@ -26,7 +26,8 @@ services:
       POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-marketplace}
       POSTGRES_USER: ${POSTGRES_USER:-marketplace}
     volumes:
-      - ./docker/db/data:/var/lib/postgresql/data:rw
+      - database:/var/lib/postgresql/data:rw
     ports:
-      - "5432"
-
+      - "5432:5432"
+volumes:
+  database:

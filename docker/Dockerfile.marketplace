@@ -15,7 +15,6 @@ RUN apk update --no-cache && apk add --no-cache \
   php81-pear \
   php81-pdo \
   php81-pdo_mysql \
-  php81-pdo_sqlite \
   php81-sodium \
   php81-ctype \
   php81-curl \
@@ -25,6 +24,8 @@ RUN apk update --no-cache && apk add --no-cache \
   php81-intl \
   php81-mbstring \
   php81-mysqli \
+  php81-pdo_pgsql \
+  php81-pdo_sqlite \
   php81-opcache \
   php81-openssl \
   php81-phar \

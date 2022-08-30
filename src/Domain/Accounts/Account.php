@@ -35,4 +35,36 @@ final class Account implements Equatable
     {
     }
 
+
+        /**
+         * Get the value of name
+         */
+        public function getName(): AccountName
+        {
+                return $this->name;
+        }
+
+        /**
+         * Get the value of ownerId
+         */
+        public function getOwnerId(): UserId
+        {
+                return $this->ownerId;
+        }
+
+        /**
+         * Get the value of createdBy
+         */
+        public function getCreatedBy(): UserId
+        {
+                return $this->createdBy;
+        }
+
+        /**
+         * Get the value of createdAt
+         */
+        public function getCreatedAt(): DateTime
+        {
+                return $this->createdAt;
+        }
 }
