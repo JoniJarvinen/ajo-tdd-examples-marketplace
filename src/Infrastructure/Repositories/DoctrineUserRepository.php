@@ -10,6 +10,7 @@ use Ajo\Tdd\Examples\Marketplace\Domain\Users\UserId;
 use Ajo\Tdd\Examples\Common\Domain\IdGeneratorInterface;
 use Ajo\Tdd\Examples\Marketplace\Domain\Users\UserCollection;
 use Ajo\Tdd\Examples\Marketplace\Domain\Users\UserRepositoryInterface;
+use Ajo\Tdd\Examples\Marketplace\Infrastructure\Entities\User as EntityUser;
 use Doctrine\ORM\EntityRepository;
 
 final class DoctrineUserRepository implements UserRepositoryInterface
@@ -20,7 +21,7 @@ final class DoctrineUserRepository implements UserRepositoryInterface
         private EntityManagerInterface $entityManager,
         private IdGeneratorInterface $idGenerator
     ) {
-        $this->repository = $entityManager->getRepository(EntityAccount::class);
+        $this->repository = $entityManager->getRepository(EntityUser::class);
     }
 
     public function save(User $user): User

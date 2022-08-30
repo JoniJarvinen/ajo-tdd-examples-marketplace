@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace Ajo\Tdd\Examples\Tests\UnitTests\Domain;
 
 use Ajo\Tdd\Examples\Common\Infrastructure\Time\DateTime;
-use Ajo\Tdd\Examples\Marketplace\Domain\Ads\AdCollection;
 use Ajo\Tdd\Examples\Tests\Dsl\Marketplace;
 use PHPUnit\Framework\TestCase;
 use Throwable;
