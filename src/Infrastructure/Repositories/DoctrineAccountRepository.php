@@ -83,7 +83,7 @@ final class DoctrineAccountRepository implements AccountRepositoryInterface
 
         $query = $this->repository
             ->createQueryBuilder('all_accounts')
-            ->setFirstResult($page * $limit)
+            ->setFirstResult($page * $limit - $limit)
             ->setMaxResults($limit)
             ->getQuery();
 
