@@ -67,17 +67,4 @@ class InMemoryAdRepository implements AdRepositoryInterface
         return null;
     }
 
-
-
-    // public function findById(AdId $adId): ?Ad
-    // {
-    //     foreach(array_keys($this->records) as $adId)
-    //     {
-    //         if(isset($this->records[(string)$adId]))
-    //         {
-    //             return $this->records[(string)$adId];
-    //         }
-    //     }
-    //     return null;
-    // }
 }
