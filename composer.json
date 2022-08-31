@@ -23,7 +23,7 @@
         "doctrine/doctrine-bundle": "^2.7",
         "doctrine/doctrine-migrations-bundle": "^3.2",
         "doctrine/orm": "*",
-        "jonijarvinen/ajo-tdd-examples-common": "dev-main",
+        "jonijarvinen/ajo-tdd-examples-common": "dev-master",
         "json-mapper/json-mapper": "^2",
         "json-mapper/symfony-bundle": "^2",
         "react/http": "^1.3",
